@@ -1,0 +1,27 @@
+From 757c35d3ade06dac406891fe8fcc24931ba28bab Mon Sep 17 00:00:00 2001
+From: Steve Arnold <stephen.arnold42@gmail.com>
+Date: Wed, 26 Oct 2016 21:38:26 -0700
+Subject: [PATCH 2/4] Add dm: mmc: socfpga: fix MMC_OPS support patch
+
+Signed-off-by: Steve Arnold <stephen.arnold42@gmail.com>
+---
+ drivers/mmc/socfpga_dw_mmc.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/mmc/socfpga_dw_mmc.c b/drivers/mmc/socfpga_dw_mmc.c
+index 5a3a4ff..0a22e58 100644
+--- a/drivers/mmc/socfpga_dw_mmc.c
++++ b/drivers/mmc/socfpga_dw_mmc.c
+@@ -151,7 +151,9 @@ U_BOOT_DRIVER(socfpga_dwmmc_drv) = {
+ 	.id		= UCLASS_MMC,
+ 	.of_match	= socfpga_dwmmc_ids,
+ 	.ofdata_to_platdata = socfpga_dwmmc_ofdata_to_platdata,
++	.ops		= &dm_dwmci_ops,
+ 	.bind		= socfpga_dwmmc_bind,
+ 	.probe		= socfpga_dwmmc_probe,
+ 	.priv_auto_alloc_size = sizeof(struct dwmci_socfpga_priv_data),
++	.platdata_auto_alloc_size = sizeof(struct socfpga_dwmci_plat),
+ };
+-- 
+2.9.3
+

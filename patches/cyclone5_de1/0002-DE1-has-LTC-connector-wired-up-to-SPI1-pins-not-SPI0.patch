@@ -1,0 +1,82 @@
+From 715c0fe5df952843b62d7ae8053c23cf26eff483 Mon Sep 17 00:00:00 2001
+From: "S. Lockwood-Childs" <sjl@vctlabs.com>
+Date: Sat, 7 Jan 2017 22:59:44 -0800
+Subject: [PATCH 2/2] DE1 has LTC connector wired up to SPI1 pins, not SPI0
+
+* also move spidev in de1 audio dts
+
+Signed-off-by: Steve Arnold <nerdboy@gentoo.org>
+---
+ arch/arm/boot/dts/socfpga_cyclone5_de1_soc-audio.dts | 16 ++++++++--------
+ arch/arm/boot/dts/socfpga_cyclone5_de1_soc-fb.dts    | 16 ++++++++--------
+ 2 files changed, 16 insertions(+), 16 deletions(-)
+
+diff --git a/arch/arm/boot/dts/socfpga_cyclone5_de1_soc-audio.dts b/arch/arm/boot/dts/socfpga_cyclone5_de1_soc-audio.dts
+index dfbb7a550d43..6ad4e754a8ef 100644
+--- a/arch/arm/boot/dts/socfpga_cyclone5_de1_soc-audio.dts
++++ b/arch/arm/boot/dts/socfpga_cyclone5_de1_soc-audio.dts
+@@ -217,14 +217,6 @@
+ 
+ &spi0 {
+ 	status = "okay";
+-
+-	spidev@0 {
+-		/* spidev causes a WARN_ON() so spoof with DAC compat */
+-		compatible = "rohm,dh2228fv";
+-		reg = <0>;      /* chip select */
+-		spi-max-frequency = <1000000>;
+-		enable-dma = <1>;
+-	};
+ };
+ 
+ &uart0 {
+@@ -237,6 +229,14 @@
+ 
+ &spi1 {
+ 	status = "okay";
++
++	spidev@0 {
++		/* spidev causes a WARN_ON() so spoof with DAC compat */
++		compatible = "rohm,dh2228fv";
++		reg = <0>;      /* chip select */
++		spi-max-frequency = <1000000>;
++		enable-dma = <1>;
++	};
+ };
+ 
+ &mmc0 {
+diff --git a/arch/arm/boot/dts/socfpga_cyclone5_de1_soc-fb.dts b/arch/arm/boot/dts/socfpga_cyclone5_de1_soc-fb.dts
+index 23701ad94c60..bba8114be436 100644
+--- a/arch/arm/boot/dts/socfpga_cyclone5_de1_soc-fb.dts
++++ b/arch/arm/boot/dts/socfpga_cyclone5_de1_soc-fb.dts
+@@ -123,14 +123,6 @@
+ 
+ &spi0 {
+ 	status = "okay";
+-
+-	spidev@0 {
+-		/* spidev causes a WARN_ON() so spoof with DAC compat */
+-		compatible = "rohm,dh2228fv";
+-		reg = <0>;      /* chip select */
+-		spi-max-frequency = <1000000>;
+-		enable-dma = <1>;
+-	};
+ };
+ 
+ &i2c0 {
+@@ -166,4 +158,12 @@
+ 
+ &spi1 {
+ 	status = "okay";
++
++	spidev@0 {
++		/* spidev causes a WARN_ON() so spoof with DAC compat */
++		compatible = "rohm,dh2228fv";
++		reg = <0>;      /* chip select */
++		spi-max-frequency = <1000000>;
++		enable-dma = <1>;
++	};
+ };
+-- 
+2.13.1
+

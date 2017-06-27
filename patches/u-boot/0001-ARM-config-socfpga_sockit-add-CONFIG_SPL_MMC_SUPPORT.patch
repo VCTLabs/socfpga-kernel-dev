@@ -1,0 +1,26 @@
+From 9c676b7451b53c45e9239e5579f47682652f18ba Mon Sep 17 00:00:00 2001
+From: Steve Arnold <stephen.arnold42@gmail.com>
+Date: Wed, 26 Oct 2016 21:37:14 -0700
+Subject: [PATCH 1/5] ARM: config: socfpga_sockit: add CONFIG_SPL_MMC_SUPPORT
+ to defconfig
+
+Signed-off-by: Steve Arnold <stephen.arnold42@gmail.com>
+---
+ configs/socfpga_sockit_defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/configs/socfpga_sockit_defconfig b/configs/socfpga_sockit_defconfig
+index bf5d63db3c..5915013568 100644
+--- a/configs/socfpga_sockit_defconfig
++++ b/configs/socfpga_sockit_defconfig
+@@ -14,6 +14,7 @@ CONFIG_VERSION_VARIABLE=y
+ CONFIG_SPL=y
+ CONFIG_SPL_SYS_MALLOC_SIMPLE=y
+ CONFIG_SPL_STACK_R=y
++CONFIG_SPL_MMC_SUPPORT=y
+ CONFIG_HUSH_PARSER=y
+ CONFIG_CMD_BOOTZ=y
+ # CONFIG_CMD_IMLS is not set
+-- 
+2.13.1
+

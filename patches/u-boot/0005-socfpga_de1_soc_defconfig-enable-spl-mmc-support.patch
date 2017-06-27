@@ -1,0 +1,25 @@
+From 974a083b4f72c3b7e6ba6476d2b051d6dd91e359 Mon Sep 17 00:00:00 2001
+From: Steve Arnold <nerdboy@gentoo.org>
+Date: Sun, 25 Jun 2017 20:10:10 -0700
+Subject: [PATCH 5/5] socfpga_de1_soc_defconfig: enable spl mmc support
+
+Signed-off-by: Steve Arnold <nerdboy@gentoo.org>
+---
+ configs/socfpga_de1_soc_defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/configs/socfpga_de1_soc_defconfig b/configs/socfpga_de1_soc_defconfig
+index bba90bef28..78547d50d8 100644
+--- a/configs/socfpga_de1_soc_defconfig
++++ b/configs/socfpga_de1_soc_defconfig
+@@ -17,6 +17,7 @@ CONFIG_SPL=y
+ CONFIG_SPL_SYS_MALLOC_SIMPLE=y
+ CONFIG_SPL_STACK_R=y
+ CONFIG_SPL_YMODEM_SUPPORT=y
++CONFIG_SPL_MMC_SUPPORT=y
+ CONFIG_HUSH_PARSER=y
+ CONFIG_CMD_BOOTZ=y
+ # CONFIG_CMD_IMLS is not set
+-- 
+2.13.1
+
